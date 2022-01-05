@@ -42,7 +42,8 @@ class RouteServiceProvider extends ServiceProvider
                 ->middleware('api')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
-
+            Route::pattern('killers','[0-9+]');
+            Route::pattern('DLCs','[0-9+]');
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));

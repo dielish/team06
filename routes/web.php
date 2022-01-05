@@ -1,7 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\DLCsController;
+use App\Http\Controllers\KillersController;
+use App\Http\Controllers\UserComntroller;
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +20,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/**
- * 簡單測試一下
- * 11
- */
+Route::get('killers/difficulty',[KillersController::class,'difficulty'])->name('killers.difficulty');
+Route::get('killers/soso',[KillersController::class,'soso'])->name('killers.soso');
+Route::get('killers/er',[KillersController::class,'er'])->name('killers.er');
+Route::get('DLCs/price',[DLCsController::class,'price'])->name('DLCs.price');
+Route::get('DLCs/p',[DLCsController::class,'p'])->name('DLCs.p');
+Route::get('DLCs/rt',[DLCsController::class,'rt'])->name('DLCs.rt');
+
+
+Route::resource("killers",KillersController::class);
+Route::resource("DLCs",DLCsController::class);
